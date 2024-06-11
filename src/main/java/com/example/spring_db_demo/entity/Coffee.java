@@ -1,10 +1,26 @@
 package com.example.spring_db_demo.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.UUID;
 
+@Entity
 public class Coffee {
-    private final String id;
+
+    @Id
+    @Getter
+    @Setter
+    private String id;
+
+    @Getter
+    @Setter
     private String name;
+
+    public Coffee() {
+    }
 
     public Coffee(String id, String name) {
         this.id = id;
@@ -13,17 +29,5 @@ public class Coffee {
 
     public Coffee(String name) {
         this(UUID.randomUUID().toString(), name);
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
